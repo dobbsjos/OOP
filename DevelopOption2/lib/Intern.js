@@ -1,6 +1,20 @@
-// require Employee class
+var Employee = require("./Employee");
 
 
-// create a class called intern that extends Employee
+class Intern extends Employee {
+    constructor(name, id, email, school) {
+        this.school = school;
 
-// export intern
+
+        super(name, id, email);
+
+    }
+    getRole() {
+        return "Intern";
+    }
+    getSchool() {
+        return "school";
+    }
+}
+
+module.export = Intern;

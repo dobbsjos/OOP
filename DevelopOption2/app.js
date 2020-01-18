@@ -18,11 +18,15 @@ const teamMember = [];
 function mainApp() {
     // create a manager
     inquirer    
-        .prompt([
+        .prompt([{
+            message: "Do you want to start a team?:",
+            name: "team"
+        }
         
         ])
         .then(answers =>{
-            
+            const teamObj = new Employee();
+           console.log(teamObj);
         })
 
 }
@@ -30,25 +34,57 @@ function mainApp() {
 function createTeam(){
 
     inquirer
-        .prompt([
+        .prompt([{
+            message: "What is your Name:",
+            name: "name"
+        },
+        {
+            message: "What is your Role:",
+            name: "role"
+        },
+        {
+            message: "What is your employee id:",
+            name: "id"
+        },
+        {
+            message: "What is your email:",
+            name: "email"
+        }
             
         ])
         .then(answers => {
             // create a switch statement to choose between engineer, intern, or build team
+           const managerObj = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+           console.log(managerObj);
            
-        })
+        });
 }
 
 // a function that create an engineer
 function getEngineer() {
 
     inquirer    
-        .prompt([
-            
+        .prompt([{
+            message: "What is your Name:",
+            name: "name"
+        },
+        {
+            message: "What is your Role:",
+            name: "role"
+        },
+        {
+            message: "What is your employee id:",
+            name: "id"
+        },
+        {
+            message: "What is your github username:",
+            name: "username"
+        }
 
         ])
         .then(answers =>{
-           
+            const engineerObj = new Engineer(answers.name, answers.id, answers.username);
+            console.log(engineerObj);
         })
 
 }
@@ -56,12 +92,28 @@ function getEngineer() {
 function getIntern() {
 
     inquirer    
-        .prompt([
+        .prompt([{
+            message: "What is your Name:",
+            name: "name"
+        },
+        {
+            message: "What is your Role:",
+            name: "role"
+        },
+        {
+            message: "What is your employee id:",
+            name: "id"
+        },
+        {
+            message: "What school did you attend:",
+            name: "school"
+        }
           
 
         ])
         .then(answers =>{
-          
+            const internObj = new Intern(answers.name, answers.id, answers.school);
+            console.log(internObj);
         })
 
 }
